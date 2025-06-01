@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Dev",
+      "detail": "Run project for local env only",
+      "command": "deno",
+      "args": ["task", "dev"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "base": "$tsc-watch",
+        "background": {
+          "activeOnStart": true,
+          // log pattern that marks task has started
+          "beginsPattern": "VITE",
+          // log pattern that marks initialization is complete
+          "endsPattern": "help"
+        }
+      }
+    },
+    {
+      "label": "Build",
+      "detail": "Run Build",
+      "command": "deno",
+      "args": ["task", "build"]
+    },
+    {
+      "label": "Run Preview (NOT RECOMMENDED)",
+      "detail": "Serve app to everyone on the network",
+      "command": "deno",
+      "args": ["task", "preview"]
+    },
+    {
+      "label": "Run Server",
+      "detail": "Serve app to everyone on the network",
+      "command": "deno",
+      "args": ["task", "serve"]
+    },
+    {
+      "label": "Compile",
+      "detail": "Create a standalone executable for your project",
+      "command": "deno",
+      "args": ["task", "compile"]
+    },
+    {
+      "label": "clean",
+      "detail": "Remove all build files",
+      "command": "rm",
+      "args": ["-rf", "dist"]
+    },
+    {
+      "label": "clean dependencies",
+      "detail": "Remove all build files",
+      "command": "rm",
+      "args": ["-rf", "dist"]
+    },
+    {
+      "label": "very clean",
+      "detail": "Remove all build files along with node modules",
+      "dependsOn": ["clean", "clean dependencies"],
+      "command": "echo",
+      "args": ["Project just like new"]
+    }
+  ]
+}
